@@ -54,7 +54,7 @@ app.get(
   })
 );
 app.get("/auth/google/success", (req, res) => {
-  res.redirect("http://localhost:5501/Frontend/homepage/index.html");
+  res.redirect("http://127.0.0.1:5500/homepage/index.html");
 });
 app.get("/auth/google/failure", (req, res) => {
   res.send("Failed !");
@@ -76,19 +76,13 @@ app.get("/protected", async (req, res) => {
     };
     const newUser = new UserModel(user);
     await newUser.save();
-    res.redirect(
-      "http://127.0.0.1:5501/Frontend/project_timer_pages/project.html"
-    );
+    res.redirect("http://127.0.0.1:5500/project_timer_pages/project.html");
   } else {
-    res.redirect(
-      "http://127.0.0.1:5501/Frontend/project_timer_pages/project.html"
-    );
+    res.redirect("http://127.0.0.1:5500/project_timer_pages/project.html");
   }
 });
 app.get("/protected", (req, res) => {
-  res.redirect(
-    "http://127.0.0.1:5501/Frontend/login_signup_pages/register.html"
-  );
+  res.redirect("http://127.0.0.1:5500/login_signup_pages/register.html");
 });
 //   Github Authentication
 app.get("/auth/github", async (req, res) => {
@@ -139,20 +133,14 @@ app.get("/auth/github", async (req, res) => {
     };
     const newUser = new UserModel(users);
     await newUser.save();
-    res.redirect(
-      "http://127.0.0.1:5501/Frontend/project_timer_pages/project.html"
-    );
+    res.redirect("http://127.0.0.1:5500/project_timer_pages/project.html");
   } else {
-    res.redirect(
-      "http://127.0.0.1:5501/Frontend/project_timer_pages/project.html"
-    );
+    res.redirect("http://127.0.0.1:5500/project_timer_pages/project.html");
   }
   // res.redirect("http://127.0.0.1:5501/Frontend/project_timer_pages/project.html")
 });
 app.get("/login", (req, res) => {
-  res.redirect(
-    "http://127.0.0.1:5501/Frontend/login_signup_pages/register.html"
-  );
+  res.redirect("http://127.0.0.1:5500/login_signup_pages/register.html");
 });
 // const useremail = await fetch("https://api.github.com/user/emails", {
 //   headers: {
@@ -167,9 +155,7 @@ app.get("/login", (req, res) => {
 // );
 // });
 app.get("/login", (req, res) => {
-  res.redirect(
-    "http://127.0.0.1:5501/Frontend/login_signup_pages/register.html"
-  );
+  res.redirect("http://127.0.0.1:5500/login_signup_pages/register.html");
 });
 app.get("/auth/protected", isLoggedIn, (req, res) => {
   res.send("Hello there!");
