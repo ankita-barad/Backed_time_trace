@@ -46,6 +46,7 @@ app.get(
   "/auth/google",
   passport.authenticate("google", { scope: ["email", "profile"] })
 );
+
 app.get(
   "/auth/google/callback",
   passport.authenticate("google", {
@@ -54,7 +55,7 @@ app.get(
   })
 );
 app.get("/auth/google/success", (req, res) => {
-  res.redirect("http://127.0.0.1:5500/homepage/index.html");
+  res.redirect("http://127.0.0.1:5500/index.html");
 });
 app.get("/auth/google/failure", (req, res) => {
   res.send("Failed !");
@@ -76,13 +77,13 @@ app.get("/protected", async (req, res) => {
     };
     const newUser = new UserModel(user);
     await newUser.save();
-    res.redirect("http://127.0.0.1:5500/project_timer_pages/project.html");
+    res.redirect("http://127.0.0.1:5500/project.html");
   } else {
-    res.redirect("http://127.0.0.1:5500/project_timer_pages/project.html");
+    res.redirect("http://127.0.0.1:5500/project.html");
   }
 });
 app.get("/protected", (req, res) => {
-  res.redirect("http://127.0.0.1:5500/login_signup_pages/register.html");
+  res.redirect("http://127.0.0.1:5500/register.html");
 });
 //   Github Authentication
 app.get("/auth/github", async (req, res) => {
@@ -133,14 +134,14 @@ app.get("/auth/github", async (req, res) => {
     };
     const newUser = new UserModel(users);
     await newUser.save();
-    res.redirect("http://127.0.0.1:5500/project_timer_pages/project.html");
+    res.redirect("http://127.0.0.1:5500/project.html");
   } else {
-    res.redirect("http://127.0.0.1:5500/project_timer_pages/project.html");
+    res.redirect("http://127.0.0.1:5500/project.html");
   }
-  // res.redirect("http://127.0.0.1:5501/Frontend/project_timer_pages/project.html")
+  // res.redirect("http://127.0.0.1:5501/project.html")
 });
 app.get("/login", (req, res) => {
-  res.redirect("http://127.0.0.1:5500/login_signup_pages/register.html");
+  res.redirect("http://127.0.0.1:5500/register.html");
 });
 // const useremail = await fetch("https://api.github.com/user/emails", {
 //   headers: {
@@ -151,12 +152,13 @@ app.get("/login", (req, res) => {
 //   .catch((err) => console.log(err));
 // console.log(useremail);
 // res.redirect(
-//   "http://127.0.0.1:5501/Frontend/project_timer_pages/project.html"
+//   "http://127.0.0.1:5501/project.html"
 // );
 // });
 app.get("/login", (req, res) => {
-  res.redirect("http://127.0.0.1:5500/login_signup_pages/register.html");
+  res.redirect("http://127.0.0.1:5500/register.html");
 });
+
 app.get("/auth/protected", isLoggedIn, (req, res) => {
   res.send("Hello there!");
 });
