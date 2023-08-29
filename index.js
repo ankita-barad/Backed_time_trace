@@ -55,7 +55,7 @@ app.get(
   })
 );
 app.get("/auth/google/success", (req, res) => {
-  res.redirect("https://storied-piroshki-62ee51.netlify.app/index.html");
+  res.redirect("https://leafy-crisp-0c80a7.netlify.app/index.html");
 });
 app.get("/auth/google/failure", (req, res) => {
   res.send("Failed !");
@@ -77,13 +77,13 @@ app.get("/protected", async (req, res) => {
     };
     const newUser = new UserModel(user);
     await newUser.save();
-    res.redirect("https://storied-piroshki-62ee51.netlify.app/project.html");
+    res.redirect("https://leafy-crisp-0c80a7.netlify.app/project.html");
   } else {
-    res.redirect("https://storied-piroshki-62ee51.netlify.app/project.html");
+    res.redirect("https://leafy-crisp-0c80a7.netlify.app/project.html");
   }
 });
 app.get("/protected", (req, res) => {
-  res.redirect("https://storied-piroshki-62ee51.netlify.app/register.html");
+  res.redirect("https://leafy-crisp-0c80a7.netlify.app/register.html");
 });
 //   Github Authentication
 app.get("/auth/github", async (req, res) => {
@@ -134,14 +134,14 @@ app.get("/auth/github", async (req, res) => {
     };
     const newUser = new UserModel(users);
     await newUser.save();
-    res.redirect("https://storied-piroshki-62ee51.netlify.app/project.html");
+    res.redirect("https://leafy-crisp-0c80a7.netlify.app/project.html");
   } else {
-    res.redirect("https://storied-piroshki-62ee51.netlify.app/project.html");
+    res.redirect("https://leafy-crisp-0c80a7.netlify.app/project.html");
   }
   // res.redirect("http://127.0.0.1:5501/project.html")
 });
 app.get("/login", (req, res) => {
-  res.redirect("https://storied-piroshki-62ee51.netlify.app/register.html");
+  res.redirect("https://leafy-crisp-0c80a7.netlify.app/register.html");
 });
 // const useremail = await fetch("https://api.github.com/user/emails", {
 //   headers: {
@@ -156,7 +156,7 @@ app.get("/login", (req, res) => {
 // );
 // });
 app.get("/login", (req, res) => {
-  res.redirect("https://storied-piroshki-62ee51.netlify.app/register.html");
+  res.redirect("https://leafy-crisp-0c80a7.netlify.app/register.html");
 });
 
 app.get("/auth/protected", isLoggedIn, (req, res) => {
