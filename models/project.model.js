@@ -11,10 +11,9 @@ const projectSchema = new mongoose.Schema(
       required: true,
     },
 
-    createdBy: { type: mongoose.Schema.Types.ObjectId, ref: "user" },
+    createdBy: { type: String, required: true },
 
     // createdBy: { type: Schema.Types.ObjectId, ref: "user" },
-
   },
   { timestamps: true }
 );

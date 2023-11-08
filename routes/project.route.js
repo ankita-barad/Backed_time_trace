@@ -1,15 +1,22 @@
 const express = require("express");
 const { ProjectModel } = require("../models/project.model");
+const { authenticate } = require("../middlewares/authentication.middleware");
 
 const projectRoute = express.Router();
 
 // Create a new project
-projectRoute.post("/create", async (req, res) => {
+projectRoute.post("/create", authenticate, async (req, res) => {
   try {
+    console.log(req.userId);
+    const user = await UserModel.findById(req.userId);
+    if (!user) {
+      return res.status(404).json({ error: "User not found" });
+    }
     const { name, description } = req.body;
     const project = new ProjectModel({
       name,
       description,
+      createdBy: user.name, // Assuming user model has an _id field
     });
 
     await project.save();
