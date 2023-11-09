@@ -1,6 +1,7 @@
 const express = require("express");
 const { ProjectModel } = require("../models/project.model");
 const { authenticate } = require("../middlewares/authentication.middleware");
+const { UserModel } = require("../models/user.model");
 
 const projectRoute = express.Router();
 
