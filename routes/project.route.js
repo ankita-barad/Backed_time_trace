@@ -16,14 +16,14 @@ projectRoute.post("/create", authenticate, async (req, res) => {
     const project = new ProjectModel({
       name,
       description,
-      createdBy: user.name, // Assuming user model has an _id field
+      createdBy: user.name,
     });
 
     await project.save();
     res.status(200).json({ project });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: "Failed to create project" });
+    res.status(500).send(error);
   }
 });
 
